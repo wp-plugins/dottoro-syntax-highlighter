@@ -46,8 +46,8 @@ Yes, settings can be set for each code snippet separately.
 
 == Screenshots ==
 
-1. Default theme
-2. Black theme
+1. The first image screenshot-1.jpg shows the default theme.
+1. The second image screenshot-2.jpg shows the black theme.
 
 
 == Changelog ==
