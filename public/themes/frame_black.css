@@ -1,0 +1,14 @@
+.dr_hl_footer {
+    background-color:#000000;
+}
+.dr_hl_viewPlainCell, 
+.dr_hl_copyCell, 
+.dr_hl_printCell {
+    background-color:#323232;
+    border:1px solid #555555;
+    color:#acacac;
+    cursor:pointer;
+}
+.dr_hl_trademarkCell a:link {color:#747474; text-decoration:none;}
+.dr_hl_trademarkCell a:visited {color:#747474; text-decoration:none;}
+.dr_hl_trademarkCell a:active {color:#747474;}
