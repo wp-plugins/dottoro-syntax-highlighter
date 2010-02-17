@@ -47,8 +47,8 @@ Yes, settings can be set for each code snippet separately.
 
 == Screenshots ==
 
-1. images/admin_themes/code_default.jpg
-2. images/admin_themes/code_black.jpg
+1. /trunk/images/admin_themes/code_default.jpg
+2. /trunk/images/admin_themes/code_black.jpg
 
 
 == Changelog ==
