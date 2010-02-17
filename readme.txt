@@ -44,11 +44,17 @@ You can find the 'Dottoro Highlighter' submenu under the 'Settings menu' of the 
 Yes, settings can be set for each code snippet separately.
 
 
+== Screenshots ==
+
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
+the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
+2. This is the second screen shot
+
 
 == Screenshots ==
 
-1. /trunk/images/admin_themes/code_default.jpg
-2. /trunk/images/admin_themes/code_black.jpg
+1. Default theme
+2. Black theme
 
 
 == Changelog ==
