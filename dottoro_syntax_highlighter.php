@@ -26,7 +26,7 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-$dr_hl_plugin_url = WP_PLUGIN_URL . '/' . "dottoro_highlighter/";
+$dr_hl_plugin_url = WP_PLUGIN_URL . '/' . "dottoro-syntax-highlighter/";
 
 // Add styles and scripts to header
 function dr_highlighter_Head_Includes ()
