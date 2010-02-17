@@ -44,6 +44,7 @@ You can find the 'Dottoro Highlighter' submenu under the 'Settings menu' of the 
 Yes, settings can be set for each code snippet separately.
 
 
+
 == Screenshots ==
 
 1. images/admin_themes/code_default.jpg
