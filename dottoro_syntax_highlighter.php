@@ -4,7 +4,7 @@
 	Plugin Name: Dottoro Syntax Highlighter
 	Plugin URI: http://tools.dottoro.com/services/highlighter/plugins/
 	Description: Syntax Highlighter for HTML, CSS, JavaScript and XML languages
-	Version: 1.0
+	Version: 1.2
 	Author: Dottoro.com
 	Author URI: http://tools.dottoro.com
 */
@@ -26,7 +26,7 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-$dr_hl_plugin_url = WP_PLUGIN_URL . '/' . "dottoro-syntax-highlighter/";
+$dr_hl_plugin_url = WP_PLUGIN_URL . '/' . "dottoro-syntax-highlighter/"; 
 
 // Add styles and scripts to header
 function dr_highlighter_Head_Includes ()
