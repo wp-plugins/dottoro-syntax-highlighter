@@ -1,0 +1,8 @@
+.dr_hl_codeContainer {
+    background-color:#000000 !Important;
+    border:1px solid #555555 !Important;
+    color:#ffffff !Important;
+}
+
+/* For codes with line numbers */
+.dr_hl_lineNumbersCell {background-color:#323232 !Important;}

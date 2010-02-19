@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Dottoro Highlighter Dialog</title>
+
+		<script type="text/javascript">
+			var contentWin = window.top;
+			var textarea;
+			var jquery_dialog = null;
+			var start = null;
+			var end = null;
+			var selection = null;
+			var isInSyntaxBlock = false;
+			var defaults = null;
+			var syntaxBlockStart = null;
+			var syntaxBlockEnd = null;
+
+			function Init (selArr, dialog) {
+				textarea = contentWin.document.getElementById ("content");
+				jquery_dialog = dialog;
+				if (selArr) {
+					start = selArr[0];
+					end = selArr[1];
+					selection = selArr[2];
+					if (selArr[3]) {
+						defaults = selArr[3];
+						syntaxBlockStart = selArr[4];
+						syntaxBlockEnd = selArr[5];
+					}
+				}
+				InitControlStates ();
+			}
+
+			function InitControlStates () {
+				if (defaults) {
+					isInSyntaxBlock = true;
+					SetDefaultValues (defaults);
+				}
+			}
+
+			function SetDefaultValues (defaults) {
+				var values = defaults.split (";");
+				var initValues =  new Array ();
+				for (var i=0; i < values.length; i++) {
+					var idx = values[i].indexOf (":");
+					var id = values[i].substring (0, idx);
+					var val = values[i].substring (idx + 1);
+
+					switch (id) {
+						case "width":
+						case "height":
+							try {
+								var elem = document.getElementById (id);
+								elem.value = val;
+							} catch (e) {}
+							break;
+						case "compress":
+						case "lineNumbers":
+							try {
+								var radios = document.getElementsByName (id);
+								for (var j=0; j < radios.length; j++) {
+									if (radios[j].value == val) {
+										radios[j].checked = true;
+									}
+								}
+							} catch (e) {}
+							break;
+						case "lang":
+							try {
+								var select = document.getElementById (id);
+								for (var j=0; j < select.options.length; j++) {
+									if (select.options[j].value == val) {
+										select.options[j].selected = true;
+									}
+								}
+							} catch (e) {}
+							break;
+					}
+
+				}
+			}
+
+			function Highlight () {
+
+				var lang = document.getElementById ("lang");
+				var width = document.getElementById ("width");
+				var height = document.getElementById ("height");
+
+				var settings = "lang:" + lang.options[lang.selectedIndex].value;
+				if (width.value) {
+					var w = isNaN (width.value)? width.value : width.value + "px";
+					settings += ";width:" + w;
+				}
+				if (height.value) {
+					var h = isNaN (height.value)? height.value : height.value + "px";
+					settings += ";height:" + h;
+				}
+
+				var compress = null;
+				var compressRadios = document.getElementsByName ("compress");
+				for (var i=0; i < compressRadios.length; i++) {
+					if (compressRadios[i].checked) {
+						compress = compressRadios[i].value;
+						break;
+					}
+				}
+				settings += (compress != null)? ";compress:" + compress : "";
+
+				var line_nrs = null;
+				var line_nrs_Radios = document.getElementsByName ("lineNumbers");
+				for (var i=0; i < line_nrs_Radios.length; i++) {
+					if (line_nrs_Radios[i].checked) {
+						line_nrs = line_nrs_Radios[i].value;
+						break;
+					}
+				}
+				settings += (line_nrs != null)? ";lineNumbers:" + line_nrs : "";
+
+				var val = textarea.value;
+
+				if (isInSyntaxBlock) {
+					var startTagEnd = val.indexOf (">", syntaxBlockEnd) + 1;
+					var closeTagStart = val.indexOf ("</pre>", startTagEnd);
+
+					var newValue = val.substring (0, syntaxBlockStart + 15) + settings + '">' + EncodeHTML (val.substring (startTagEnd, closeTagStart)) + val.substring (closeTagStart);
+				} else {
+					var newValue = val.substring (0, start) + '<pre drsyntax="' + settings + '">' + EncodeHTML (val.substring (start, end)) + '</pre>' + val.substring (end);
+				}
+
+				textarea.value = newValue;
+
+				// Return
+				jquery_dialog.dialog('close');
+			}
+
+			function EncodeHTML (html) {
+				html = html.replace (/\</g, "&lt;");
+				html = html.replace (/\>/g, "&gt;");
+				return html;
+			}
+
+		</script>
+		<style>
+			body {
+				font-family:Verdana, Arial, Helvetica, sans-serif;
+				background-color:#f1f1f1;
+			}
+			a {
+				text-decoration: none;
+				font-weight: bold;
+				font-size:11px;
+				color:#000;
+			}
+			a:hover {
+				color:#2b6fb6;
+			}
+			h3 {
+				font-size:14px;
+				font-weight:normal;
+				margin:16px 0px;
+				color:#2b6fb6;
+			}
+			.td_bg {
+				font-size:12px !Important;
+			}
+		</style>
+		<base target="_self" />
+	</head>
+	<body>
+		<div align="center" id="highlight-dialog">
+			<form action="/" method="get" accept-charset="utf-8">
+				<table class="form-table" cellspacing="0" style="border-collapse:collapse; margin-bottom:16px;">
+					<tr valign="top">
+						<td colspan="2"><h3>Required</h3></td>
+					</tr>
+					<tr>
+						<td scope="row" class="td_bg">Code Language:</td>
+						<td class="td_bg">
+							<select name="lang" id="lang" size="1">
+								<option value="css">Css</option>
+								<option value="html" selected>HTML</option>
+								<option value="javascript">JavaScript</option>
+								<option value="xml">XML</option>
+							</select>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td colspan="2"><h3>Optional</h3></td>
+					</tr>
+					<tr>
+						<td scope="row" class="td_bg"><label for="width">Width:</label></td>
+						<td class="td_bg">
+							<input type="text" name="width" id="width" />
+						</td>
+					</tr>
+					<tr>
+						<td scope="row" class="td_bg"><label for="height">Height:</label></td>
+						<td class="td_bg">
+							<input type="text" name="height" id="height" />
+						</td>
+					</tr>
+<tr>
+	<td scope="row" class="td_bg"><label for="compress">Compress:</label></td>
+	<td class="td_bg">
+		yes: <input type="radio" name="compress" id="compress" value="on" />
+		no: <input type="radio" name="compress" id="compress" value="off" />
+	</td>
+</tr>
+					<tr>
+						<td scope="row" class="td_bg"><label for="lineNumbers">Line numbers:</label></td>
+						<td class="td_bg">
+							yes: <input type="radio" name="lineNumbers" value="on" />
+							no: <input type="radio" name="lineNumbers" value="off" />
+						</td>
+					</tr>
+				</table>
+
+				<button onclick="Highlight ();">Highlight</button>
+			</form>
+		</div>
+	</body>
+</html>
