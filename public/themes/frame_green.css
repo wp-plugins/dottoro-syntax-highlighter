@@ -1,0 +1,17 @@
+.dr_hl_footer {
+    background-color:#98ac18 !Important;
+    border-color:#839418 !Important;
+}
+.dr_hl_viewPlainCell, 
+.dr_hl_copyCell, 
+.dr_hl_printCell {
+    background-color:#e8e8e8 !Important;
+    border:1px solid #8f9e2f !Important;
+	border-top:none !Important;
+    color:#323232 !Important;
+    cursor:pointer;
+}
+.dr_hl_trademarkCell {color:#efefef !Important;}
+.dr_hl_trademarkCell a:link {color:#efefef !Important; text-decoration:none;}
+.dr_hl_trademarkCell a:visited {color:#efefef !Important; text-decoration:none;}
+.dr_hl_trademarkCell a:active {color:#efefef !Important;}
