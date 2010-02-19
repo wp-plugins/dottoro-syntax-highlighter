@@ -1,12 +1,13 @@
 .dr_hl_footer {
-    background-color:transparent;
-    border:none;
+    background-color:transparent !Important;
+    border:none !Important;
 }
 .dr_hl_viewPlainCell, 
 .dr_hl_copyCell, 
 .dr_hl_printCell {
-    background-color:#ebebeb;
-    border:1px solid #a0b1b9;
-    color:#363636;
+    background-color:#ebebeb !Important;
+    border:1px solid #a0b1b9 !Important;
+	border-top:none !Important;
+    color:#363636 !Important;
     cursor:pointer;
 }
