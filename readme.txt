@@ -63,6 +63,9 @@ Yes, settings can be set for each code snippet separately.
 = 1.1 =
 * New Look
 
+= 1.2 =
+* CSS rules update
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -70,4 +73,7 @@ This version contains a user friendly interface.  Upgrade immediately.
 
 = 1.1 =
 Screenshot Bug fixes.  Upgrade immediately.
+
+= 1.2 =
+CSS update.  Upgrade immediately.
 
