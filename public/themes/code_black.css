@@ -4,5 +4,9 @@
     color:#ffffff !Important;
 }
 
+.dr_hl_codeContainer pre {
+    color:#ffffff !Important;
+}
+
 /* For codes with line numbers */
 .dr_hl_lineNumbersCell {background-color:#323232 !Important;}
