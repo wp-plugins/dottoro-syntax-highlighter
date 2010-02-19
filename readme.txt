@@ -46,8 +46,8 @@ Yes, settings can be set for each code snippet separately.
 
 == Screenshots ==
 
-1. images/admin_themes/code_default.jpg
-2. images/admin_themes/code_black.jpg
+1. The first image screenshot-1.jpg shows the default theme.
+1. The second image screenshot-2.jpg shows the black theme.
 
 
 == Changelog ==
@@ -60,8 +60,14 @@ Yes, settings can be set for each code snippet separately.
 * Automatic code generation on Post_Save
 * Theme selection
 
+= 1.1 =
+* New Look
+
 == Upgrade Notice ==
 
 = 1.0 =
 This version contains a user friendly interface.  Upgrade immediately.
+
+= 1.1 =
+Screenshot Bug fixes.  Upgrade immediately.
 
