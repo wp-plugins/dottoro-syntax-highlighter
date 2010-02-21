@@ -4,7 +4,7 @@
 	Plugin Name: Dottoro Syntax Highlighter
 	Plugin URI: http://tools.dottoro.com/services/highlighter/plugins/
 	Description: Syntax Highlighter for HTML, CSS, JavaScript and XML languages
-	Version: 1.2
+	Version: 1.3
 	Author: Dottoro.com
 	Author URI: http://tools.dottoro.com
 */
@@ -206,6 +206,10 @@ function dr_highlighter_Get_Code_Settings ($base_settings, $code_settings)
 
 function dr_highlighter_Generation_Is_Needed ($_codeID, $source, $base_settings)
 {
+	if (strlen ( trim ($source) ) == 0) {
+		return false;
+	}
+
 	$settings_str = dr_highlighter_Array_To_String ($base_settings);
 
 	global $wpdb;

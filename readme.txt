@@ -3,7 +3,7 @@ Contributors: dottoro
 Tags: html, css, javascript, xml, syntax, highlighter, code, syntax highlighter, code colorer
 Requires at least: 2.7
 Tested up to: 2.9.1
-Stable tag: 1.2
+Stable tag: 1.3
 
 
 Colorize your source code as easily as possible.
@@ -66,6 +66,9 @@ Yes, settings can be set for each code snippet separately.
 = 1.2 =
 * CSS rules update
 
+= 1.3 =
+* Post saving method update.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -76,4 +79,7 @@ Screenshot Bug fixes.  Upgrade immediately.
 
 = 1.2 =
 CSS update.  Upgrade immediately.
+
+= 1.3 =
+Post saving method update.  Upgrade immediately.
 
